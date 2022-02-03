@@ -41,6 +41,41 @@ resource "aws_iam_role_policy" "role_policy" {
           "Resource": "*"
         },
         {
+      "Effect": "Allow",
+      "Action": [
+        "rds:*"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Effect":"Allow",
+      "Action": [
+        "s3:*"
+      ],
+      "Resource": "*"
+    },
+        {
+      "Effect": "Allow",
+      "Action": [
+        "secretsmanager:*"
+      ],
+      "Resource": "arn:aws:secretsmanager:${var.aws_region}:*:secret:*"
+    },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "ssm:GetParameters"
+      ],
+      "Resource": "arn:aws:ssm:${var.aws_region}:*:parameter*"
+    },
+    {
+      "Effect": "Allow",
+      "Action" : [
+        "dynamodb:*" 
+      ],
+      "Resource": "*" 
+    },
+        {
           "Effect": "Allow", 
           "Action": [
             "ec2:AuthorizeSecurityGroupEgress",
