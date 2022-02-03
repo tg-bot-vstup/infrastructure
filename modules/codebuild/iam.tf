@@ -86,7 +86,8 @@ resource "aws_iam_role_policy" "role_policy" {
         "iam:GetRolePolicy",
         "iam:PassRole",
         "iam:ListInstanceProfilesForRole",
-        "iam:ListRolePolicies"
+        "iam:ListRolePolicies",
+        "iam:ListAttachedRolePolicies"
       ],
       "Resource": "arn:aws:iam::*:role/*"
     },
