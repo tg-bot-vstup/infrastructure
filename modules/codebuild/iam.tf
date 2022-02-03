@@ -81,6 +81,7 @@ resource "aws_iam_role_policy" "role_policy" {
         "iam:CreateRole",
         "iam:DeleteRole",
         "iam:CreatePolicy",
+        "iam:GetPolicy",
         "iam:PutRolePolicy",
         "iam:DeleteRolePolicy",
         "iam:GetRole",
