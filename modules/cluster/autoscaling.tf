@@ -1,3 +1,5 @@
+# Horizontal scaling is not needed 
+/*
 resource "aws_appautoscaling_target" "target" {
   service_namespace  = "ecs"
   resource_id        = "service/${aws_ecs_cluster.cluster.name}/${aws_ecs_service.main.name}"
@@ -81,3 +83,4 @@ resource "aws_cloudwatch_metric_alarm" "service_cpu_low" {
 
   alarm_actions = [aws_appautoscaling_policy.down.arn]
 }
+*/
