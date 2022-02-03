@@ -15,7 +15,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
 }
 
 resource "aws_iam_role_policy" "ssm_params" {
-  role = aws_iam_role.ecs_task_execution_role
+  role = aws_iam_role.ecs_task_execution_role.name
   name = "ssm-params-access-${var.app_name}-${var.environment}"
 
   policy = <<POLICY
@@ -27,10 +27,7 @@ resource "aws_iam_role_policy" "ssm_params" {
         "Actions": [
           "ssm:GetParameters"
         ],
-        "Resources": [
-          "${var.bot_token_arn}",
-          "${var.db_url_arn}"
-        ]
+        "Resource": "*"
       }
     ]
   }
