@@ -40,5 +40,5 @@ phases:
       - cd "/tmp/" 
       - git clone "$INFRA_REPO" infra
       - cd infra/environments/$${ENV}/
-      - terragrunt run-all plan --terragrunt-include-dir "cluster" -var="image_tag=$${TAG}" -var="bot_token_arn=$${BOT_TOKEN_ARN}" -var="db_url_arn=$${DB_URL_ARN}" -no-color -input=false -out plan.out
+      - terragrunt plan --terragrunt-working-dir "cluster/" -var="image_tag=$${TAG}" -var="bot_token_arn=$${BOT_TOKEN_ARN}" -var="db_url_arn=$${DB_URL_ARN}" -no-color -input=false -out plan.out
       - terragrunt run-all apply -auto-approve -no-color -input=false plan.out
