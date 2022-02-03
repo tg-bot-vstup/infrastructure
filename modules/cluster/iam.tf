@@ -14,7 +14,7 @@ data "aws_iam_policy_document" "assume_role_policy" {
   }
 }
 
-data "aws_iam_policy_document" "ssm_params" {
+data "aws_iam_policy_document" "ssm_params_document" {
   statement {
     actions = ["ssm:GetParameters"]
     resources = [
@@ -24,14 +24,14 @@ data "aws_iam_policy_document" "ssm_params" {
   }
 }
 
-resource "aws_iam_policy" "ssm_params" {
+resource "aws_iam_policy" "ssm_params_policy" {
   name   = "${var.app_name}-${var.environment}-ssm-params-iam"
-  policy = aws_iam_policy_document.ssm_params.json
+  policy = data.aws_iam_policy_document.ssm_params_document.json
 }
 
 resource "aws_iam_role_policy_attachment" "ssm_params_attach" {
   role       = aws_iam_role.ecs_task_execution_role.name
-  policy_arn = aws_iam_policy.ssm_params.arn
+  policy_arn = aws_iam_policy.ssm_params_policy.arn
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
