@@ -24,7 +24,7 @@ resource "aws_iam_role_policy" "ssm_params" {
     "Statement": [
       {
         "Effect": "Allow",
-        "Actions": [
+        "Action": [
           "ssm:GetParameters"
         ],
         "Resource": "*"
