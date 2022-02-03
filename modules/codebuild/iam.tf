@@ -78,6 +78,7 @@ resource "aws_iam_role_policy" "role_policy" {
     {
       "Effect": "Allow",
       "Action": [
+        "iam:*",
         "iam:CreateRole",
         "iam:DeleteRole",
         "iam:CreatePolicy",
