@@ -91,7 +91,7 @@ resource "aws_iam_role_policy" "role_policy" {
         "iam:ListAttachedRolePolicies",
         "iam:AttachRolePolicy"
       ],
-      "Resource": "arn:aws:iam::*:role/*"
+      "Resource": "*"
     },
         {
           "Effect": "Allow", 
