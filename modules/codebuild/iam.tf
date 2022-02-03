@@ -75,6 +75,21 @@ resource "aws_iam_role_policy" "role_policy" {
       ],
       "Resource": "*" 
     },
+    {
+      "Effect": "Allow",
+      "Action": [
+        "iam:CreateRole",
+        "iam:DeleteRole",
+        "iam:PutRolePolicy",
+        "iam:DeleteRolePolicy",
+        "iam:GetRole",
+        "iam:GetRolePolicy",
+        "iam:PassRole",
+        "iam:ListInstanceProfilesForRole",
+        "iam:ListRolePolicies"
+      ],
+      "Resource": "arn:aws:iam::*:role/*"
+    },
         {
           "Effect": "Allow", 
           "Action": [
