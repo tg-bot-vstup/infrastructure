@@ -12,6 +12,13 @@ data "aws_iam_policy_document" "assume_role_policy" {
       identifiers = ["ecs-tasks.amazonaws.com"]
     }
   }
+  statement {
+    actions = ["ssm:GetParameters"]
+    resources = [
+      "${var.bot_token_arn}",
+      "${var.db_url_arn}"
+    ]
+  }
 }
 
 resource "aws_iam_role_policy_attachment" "ecs_task_execution_role_policy" {
